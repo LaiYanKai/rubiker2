@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <ros/console.h>
+#include <std_msgs/Bool.h>
 
 //#define PIN_K 23 // change pin number here
 //#define PIN_W 24
@@ -20,6 +21,7 @@ void callback(const std_msgs::Int32::ConstPtr& target, const std_msgs::Int32::Co
 
 int target = 0;
 int deg = 0;
+bool stop = false;
 void cbTarget(const std_msgs::Int32::ConstPtr& msg)
 {
     target = msg->data;
@@ -30,7 +32,10 @@ void cbDeg(const std_msgs::Int32::ConstPtr& msg)
     deg = msg->data;
 //    ROS_INFO("[%d]", deg);
 }
-
+void cbStop(const std_msgs::Bool::ConstPtr& msg)
+{
+    stop = msg->data;
+}
 float sign(float x) {
     if (x > 0) {
 	return 1;
@@ -66,13 +71,14 @@ int main (int argc, char **argv)
 
     ros::Subscriber sub_target = nh.subscribe(TOPIC_TARGET, 1, cbTarget);
     ros::Subscriber sub_deg = nh.subscribe(TOPIC_DEG, 1, cbDeg);
+    ros::Subscriber sub_stop = nh.subscribe("stop", 1, cbStop);
 
     float accum = 0;
     float prev_error = 0;
     float error, prop, integ, deriv, res;
     int res_int;
 
-    while (ros::ok())
+    while (ros::ok() && !stop)
     {
 
         ros::spinOnce();
