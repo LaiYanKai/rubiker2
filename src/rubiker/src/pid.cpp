@@ -46,23 +46,23 @@ int main (int argc, char **argv)
     ros::init(argc, argv, "pid");
     ros::NodeHandle nh;
 
-    int MTR = strtol(argv[1], nullptr, 0);
-    std::string TOPIC_TARGET = "target" + std::to_string(MTR);
-    std::string TOPIC_DEG = "deg" + std::to_string(MTR);
+    std::string MTR(argv[1]);
+    std::string TOPIC_TARGET = "target" + MTR;
+    std::string TOPIC_DEG = "deg" + MTR;
     int PIN_K = strtol(argv[2], nullptr, 0);
     int PIN_W = strtol(argv[3], nullptr, 0);
 
     float KP = strtof(argv[6], nullptr);
     float KI = strtof(argv[7], nullptr);
     float KD = strtof(argv[8], nullptr);
-    ROS_INFO("%8s (%02d) --> PIN_K:%02d  PIN_W:%02d  KP:%9.5f  KI:%9.5f  KD:%9.5f", ros::this_node::getName().c_str(), MTR, PIN_K, PIN_W, KP, KI, KD);
+    ROS_INFO("%8s --> PIN_K:%02d  PIN_W:%02d  KP:%9.5f  KI:%9.5f  KD:%9.5f", ros::this_node::getName().c_str(), PIN_K, PIN_W, KP, KI, KD);
 
     wiringPiSetupGpio();
 
     softPwmCreate(PIN_K, 0, 100);
     softPwmCreate(PIN_W, 0, 100);
 
-    ros::Rate r(20);
+    ros::Rate r(40);
 
     ros::Subscriber sub_target = nh.subscribe(TOPIC_TARGET, 1, cbTarget);
     ros::Subscriber sub_deg = nh.subscribe(TOPIC_DEG, 1, cbDeg);

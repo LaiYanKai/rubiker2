@@ -4,30 +4,30 @@ project(rubiker)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-  cv_bridge
-  geometry_msgs
-  image_transport
+#  cv_bridge
+#  geometry_msgs
+#  image_transport
   message_generation
-  nav_msgs
-  sensor_msgs
+#  nav_msgs
+#  sensor_msgs
   std_msgs
-  actionlib_msgs
-  tf
+#  actionlib_msgs
+#  tf
 )
 
 catkin_package(
   CATKIN_DEPENDS 
     roscpp
     rospy
-    cv_bridge
-    geometry_msgs
-    image_transport
+#    cv_bridge
+#    geometry_msgs
+#    image_transport
     message_generation
-    nav_msgs
-    sensor_msgs
+#    nav_msgs
+#    sensor_msgs
     std_msgs
-    actionlib_msgs
-    tf
+#    actionlib_msgs
+#    tf
 )
 
 ###########
@@ -50,8 +50,8 @@ target_link_libraries(reset ${catkin_LIBRARIES} wiringPi -lrt)
 add_executable(tacho src/tacho.cpp)
 target_link_libraries(tacho ${catkin_LIBRARIES} wiringPi -lrt)
 
-add_executable(master src/master.cpp)
-target_link_libraries(master ${catkin_LIBRARIES} wiringPi -lrt)
+#add_executable(master src/master.cpp)
+#target_link_libraries(master ${catkin_LIBRARIES} wiringPi -lrt)
 
 #EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
 #if (${ARCHITECTURE} MATCHES "arm")

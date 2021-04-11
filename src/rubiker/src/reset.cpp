@@ -8,8 +8,8 @@ int main(int argc, char **argv) {
     ros::NodeHandle nm;
     wiringPiSetupGpio();
 
-    std::vector<int> pins = {14, 6, 15, 13, 7, 12}; // pins to set 30 % for 3 seconds
-    std::vector<int> pins_pwm = {1, 8}; // pins to set digital Low // 1, 12, 8, 7
+    std::vector<int> pins = {2, 3, 5, 6, 12, 14, 15, 16}; // pins to set 30 % for 3 seconds
+    std::vector<int> pins_pwm = {2, 5}; // pins to set digital Low // 1, 12, 8, 7
 
     for (auto i : pins)
     {
