@@ -1,20 +1,20 @@
-# 15 16 M1 Wpi
-# 10 11 M2 Wpi
-# 31 26 M3 Wpi
-# 2 3 M4 Wpi
-gpio mode 15 output
-gpio write 15 0
-gpio mode 16 output
-gpio write 16 0
-gpio mode 10 output
-gpio write 10 0
-gpio mode 11 output
-gpio write 11 0
-gpio mode 31 output
-gpio write 31 0
-gpio mode 26 output
-gpio write 26 0
-gpio mode 2 output
-gpio write 2 0
-gpio mode 3 output
-gpio write 3 0
+gpio -g mode 3 output
+gpio -g write 3 0
+gpio -g mode 2 output
+gpio -g write 2 0
+gpio -g mode 25 output
+gpio -g write 25 0
+gpio -g mode 24 output
+gpio -g write 24 0
+gpio -g mode 7 output
+gpio -g write 7 0
+gpio -g mode 8 output
+gpio -g write 8 0
+gpio -g mode 6 output
+gpio -g write 6 0
+gpio -g mode 5 output
+gpio -g write 5 0
+gpio -g mode 22 output
+gpio -g write 22 0
+gpio -g mode 10 output
+gpio -g write 10 0

@@ -2,13 +2,15 @@
 source devel/setup.bash
 echo "BASH SOURCED"
 sudo ip ad add 10.0.0.2/24 dev eth0
+sudo ip link set dev eth0 up
+export ROS_MASTER_URI=http://10.0.0.1:11311
+export ROS_HOSTNAME=10.0.0.2
 
-# MTR PIN_K(BCM) PIN_W(BCM) PIN_Y(WPI/Name) PIN_B(WPI/Name) KP KI KD
-export MotorFH="FH 2 3 7 0 1.5 0.1 0.8"
-export MotorBH="BH 5 6 23 24 1.0 0.1 0.8"
-export MotorFW="FW 14 15 1 4 2.0 0.1 0.8"
-export MotorBW="BW 12 16 28 29 2.2 0.1 0.8"
-roslaunch rubiker rubiker.launch
+#		MTR	K(BCM)	W(BCM)	Y(BCM)	B(BCM)	KP	KI	KD	ErrThrs	LR Verbose
+export MotorFH="FH	3	2	18	23	2	0.001	2	5	40 0"
+export MotorBH="BH	25	24	27	16	2	0.001	2	5	40 0"
+export MotorFW="FW	7	8	20	21	2	0.001	3	5	40 1"
+export MotorBW="BW	6	5	19	13	2	0.001	3	5	40 1"
+export MotorPP="PP	22	10	11	9	0.2	0.001	0.3	5	40 0"
+roslaunch rubiker2 run.launch
 
-echo "================= RESETING ===================="
-source reset.sh

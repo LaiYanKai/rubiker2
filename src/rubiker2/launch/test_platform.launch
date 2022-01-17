@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="rubiker" type="platform" name="platform" output="screen" args="$(env Motor)"/>
+</launch>
