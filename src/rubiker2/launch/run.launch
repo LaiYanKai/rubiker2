@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="rubiker" type="motor" name="motorFW" output="screen" args="$(env MotorFW)"/>
-    <node pkg="rubiker" type="motor" name="motorFH" output="screen" args="$(env MotorFH)"/>
-    <node pkg="rubiker" type="motor" name="motorBW" output="screen" args="$(env MotorBW)"/>
-    <node pkg="rubiker" type="motor" name="motorBH" output="screen" args="$(env MotorBH)"/>
-    <node pkg="rubiker" type="motor" name="motorPP" output="screen" args="$(env MotorPP)"/>
-<!--    <node pkg="rubiker" type="master" name="master" output="screen" required="true"/> -->
+    <node pkg="rubiker2" type="motor" name="motorFW" output="screen" args="$(env MotorFW)"/>
+    <node pkg="rubiker2" type="motor" name="motorFH" output="screen" args="$(env MotorFH)"/>
+    <node pkg="rubiker2" type="motor" name="motorBW" output="screen" args="$(env MotorBW)"/>
+    <node pkg="rubiker2" type="motor" name="motorBH" output="screen" args="$(env MotorBH)"/>
+    <node pkg="rubiker2" type="motor" name="motorPP" output="screen" args="$(env MotorPP)"/>
 </launch>
