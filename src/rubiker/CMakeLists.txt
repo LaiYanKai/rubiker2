@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(rubiker2)
+project(rubiker)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp

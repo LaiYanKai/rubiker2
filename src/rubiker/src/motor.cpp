@@ -5,8 +5,8 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
-#include "rubiker2/MotorCmd.h"
-#include "rubiker2/MotorAck.h"
+#include "rubiker/MotorCmd.h"
+#include "rubiker/MotorAck.h"
 
 unsigned int seq = -1;
 bool changed_cmd = true;
@@ -55,7 +55,7 @@ float sign(float x)
   else
     return 0;
 }
-void cbCmd(const rubiker2::MotorCmd::ConstPtr& msg) {
+void cbCmd(const rubiker::MotorCmd::ConstPtr& msg) {
   seq = msg->seq;
   changed_cmd = true;
   state = msg->type;
@@ -115,8 +115,8 @@ int main (int argc, char **argv)
 
   // subscribers and publishers
   ros::Subscriber sub_cmd = nh.subscribe("cmd" + MTR, 1, cbCmd);
-  ros::Publisher pub_ack = nh.advertise<rubiker2::MotorAck>("ack" + MTR, 1, true);
-  rubiker2::MotorAck msg_ack;
+  ros::Publisher pub_ack = nh.advertise<rubiker::MotorAck>("ack" + MTR, 1, true);
+  rubiker::MotorAck msg_ack;
 
   // Prepare PID variables
   float accum = 0;

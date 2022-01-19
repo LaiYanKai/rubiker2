@@ -11,4 +11,4 @@ export ROS_HOSTNAME=localhost
 #export Motor="FW	7	8	21	20	2	0.001	3	5	40 1" #M3 #+ACW -CW
 #export Motor="BW	6	5	13	19	2	0.001	3	5	40 1" #M4 #+ACW -CW
 export Motor="PP	10	22	11	9	0.15	0.000	0.0	5	40 1" #M5 #+D -U
-roslaunch rubiker2 test.launch
+roslaunch rubiker test.launch
